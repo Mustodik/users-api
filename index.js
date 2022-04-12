@@ -1,10 +1,13 @@
 const express =require("express");
 const userRoute = require("./routes/usersRoutes")
 const path = require("path")
+const logger = require("./middlewares/user.logger")
+const booksRoute = require("./routes/booksRoutes")
+
 const app = express()
 //middlewares
 app.use(express.json());
-
+app.use(logger)
 app.use(userRoute)
 
 //home route 
