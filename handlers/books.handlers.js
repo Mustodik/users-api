@@ -1,24 +1,20 @@
-const fs = require("../data/books")
+const books = require("../data/books")
 
-
-const bookshandlers ={};
-
-bookshandlers.byCategory = (req, res, next)=>{
-  const category = req.query.category;
-  if (category){
-    let _books =books.filter((b)=>b.category == category);
-    return res.status(200).json({success:true, data:_books})
-  }
-  next()
-
-};
-bookshandlers.byAuthor = (req, res, next)=>{
-    const author = req.query.author;
-    if (author){
-        let _author =books.filter((b)=>b.author == author);
-        return res.status(200).json({success:true, data:_author})
+const booksHandlers = {};
+booksHandlers.byCategory = (req, res, next) => {
+    const category = req.query.category;
+    if (category) {
+        let _books = books.filter((b) => b.category == category);
+        return res.status(200).json({ success: true, data:_books })
     }
     next()
 };
-
-module.exports =bookshandlers
+booksHandlers.byAuthor = (req, res, next) => {
+    const Author = req.query.category;
+    if (Author) {
+        let _author=books.filter((b) => b.Author == author);
+        return res.status(200).json({ success: true, data: _Author })
+    }
+    next()
+};
+module.exports=booksHandlers
